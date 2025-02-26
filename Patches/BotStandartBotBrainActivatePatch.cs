@@ -2,7 +2,7 @@
 using DrakiaXYZ.BigBrain.Internal;
 using EFT;
 using HarmonyLib;
-using SPT.Reflection.Patching;
+using Aki.Reflection.Patching;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace DrakiaXYZ.BigBrain.Patches
     {
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(StandartBotBrain), "Activate");
+            return AccessTools.Method(typeof(BotBrainClass), "Activate");
         }
 
         [PatchPostfix]

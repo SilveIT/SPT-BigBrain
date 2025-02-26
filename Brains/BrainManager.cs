@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using AICoreLogicAgentClass = AICoreAgentClass<BotLogicDecision>;
+using AICoreLogicAgentClass = GClass26<BotLogicDecision>;
 using AICoreLogicLayerClass = AICoreLayerClass<BotLogicDecision>;
 
 namespace DrakiaXYZ.BigBrain.Brains
@@ -60,7 +60,7 @@ namespace DrakiaXYZ.BigBrain.Brains
         public static IReadOnlyList<ExcludeLayerInfo> ExcludeLayersReadOnly => Instance.ExcludeLayers.AsReadOnly();
         public static int ExcludedLayerCount => Instance.ExcludeLayers.Count;
 
-        private static FieldInfo _strategyField = Utils.GetFieldByType(typeof(AICoreLogicAgentClass), typeof(AICoreStrategyAbstractClass<>));
+        private static FieldInfo _strategyField = Utils.GetFieldByType(typeof(AICoreLogicAgentClass), typeof(AICoreStrategyClass<>));
 
         // Hide the constructor so we can have this as a guaranteed singleton
         private BrainManager() { }
@@ -299,7 +299,7 @@ namespace DrakiaXYZ.BigBrain.Brains
                 return null;
             }
 
-            BaseNodeAbstractClass activeLogic = CustomLayerWrapper.GetLogicInstance(botOwner);
+            BaseNodeClass activeLogic = CustomLayerWrapper.GetLogicInstance(botOwner);
             if (activeLogic is CustomLogicWrapper customLogicWrapper)
             {
                 return customLogicWrapper.CustomLogic();
